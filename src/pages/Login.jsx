@@ -3,12 +3,22 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { alertaRedireccion } from "../utils/alertas";
 import { generarToken } from "../utils/funciones";
-import { usuarios } from "../utils/dataBase";
+import { endPoints } from "../api/apiSistemaGestion";
+// import { usuarios } from "../utils/dataBase";
 
 function Login() {
   const [getEmail, setEmail] = useState("");
   const [getPassword, setPassword] = useState("");
+  const [usuarios, setUsuarios] = useState();
   let navigate = useNavigate();
+
+  function getUsuarios() {
+    fetch(endPoints.usuarios)
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+  }
+  getUsuarios();
 
   useEffect(() => {
     let token = localStorage.getItem("token");
