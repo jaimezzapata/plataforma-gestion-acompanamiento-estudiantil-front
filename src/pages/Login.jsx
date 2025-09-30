@@ -9,18 +9,17 @@ import { endPoints } from "../api/apiSistemaGestion";
 function Login() {
   const [getEmail, setEmail] = useState("");
   const [getPassword, setPassword] = useState("");
-  const [usuarios, setUsuarios] = useState();
+  const [usuarios, setUsuarios] = useState([]);
   let navigate = useNavigate();
 
   function getUsuarios() {
     fetch(endPoints.usuarios)
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => setUsuarios(data))
       .catch((error) => console.log(error));
   }
-  getUsuarios();
-
   useEffect(() => {
+    getUsuarios();
     let token = localStorage.getItem("token");
     if (token) {
       navigate("/home", { replace: true });

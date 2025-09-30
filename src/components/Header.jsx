@@ -4,6 +4,7 @@ import { alertaRedireccion } from "../utils/alertas";
 
 const Header = () => {
   let usuarioAuth = JSON.parse(localStorage.getItem("usuario"));
+  let iniciales = usuarioAuth.nombre.split(" ").map((letra)=> letra[0]).join("")
   let navigate = useNavigate();
   function cerrarSesion() {
     localStorage.removeItem("token");
@@ -43,7 +44,7 @@ const Header = () => {
         <div className="header-user">
           <div className="user-profile">
             <div className="user-avatar">
-              <span className="avatar-text">JZ</span>
+              <span className="avatar-text">{iniciales}</span>
             </div>
             <div className="user-info">
               <span className="user-name">{usuarioAuth.nombre}</span>
