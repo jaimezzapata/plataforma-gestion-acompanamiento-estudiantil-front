@@ -3,6 +3,7 @@ import "./Header.css";
 import { alertaRedireccion } from "../utils/alertas";
 
 const Header = () => {
+  let usuarioAuth = JSON.parse(localStorage.getItem("usuario"));
   let navigate = useNavigate();
   function cerrarSesion() {
     localStorage.removeItem("token");
@@ -45,8 +46,7 @@ const Header = () => {
               <span className="avatar-text">JZ</span>
             </div>
             <div className="user-info">
-              <span className="user-name">Jaime Zapata</span>
-              <span className="user-role">Coordinador</span>
+              <span className="user-name">{usuarioAuth.nombre}</span>
             </div>
           </div>
           <button onClick={cerrarSesion} type="button" className="logout-btn">
