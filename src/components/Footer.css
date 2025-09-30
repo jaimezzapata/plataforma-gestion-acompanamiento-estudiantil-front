@@ -1,0 +1,22 @@
+/* Variables de color para el footer */
+:root {
+    --footer-bg: #2c3e50;
+    --footer-text: #bdc3c7;
+  }
+
+  .footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 1.5rem 2rem;
+    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
