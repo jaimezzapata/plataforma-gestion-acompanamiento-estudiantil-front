@@ -1,0 +1,35 @@
+.perfil-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+
+    .perfil-foto {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+
+        img {
+            width: 70%;
+            height: 100%;
+        }
+    }
+
+    .perfil-info {
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        gap: 15px;
+
+        .perfil-editar {
+            width: 200px;
+            height: 40px;
+            background: none;
+            border: solid 1px black;
+        }
+    }
+}

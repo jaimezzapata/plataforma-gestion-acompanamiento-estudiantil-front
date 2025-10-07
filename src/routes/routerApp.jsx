@@ -15,10 +15,10 @@ export const routerApp = [
   },
   {
     path: "/perfil",
-    element: <Perfil />,
+    element: <ProtegerRutas proteger={<Perfil />} />,
   },
   {
     path: "/notas",
-    element: <Notas />,
+    element: <ProtegerRutas proteger={<Notas />} />,
   },
 ];
