@@ -1,7 +1,30 @@
 import "./Notas.css";
 import Header from "../components/Header";
+import { useState, useEffect } from "react";
+import { endPoints } from "../api/apiSistemaGestion";
 
 const Notas = () => {
+  const [notas, setNotas] = useState([]);
+  function getNotas() {
+    fetch(endPoints.notas)
+      .then((response) => response.json())
+      .then((data) => setNotas(data))
+      .catch((error) => console.log(error));
+  }
+  useEffect(() => {
+    getNotas();
+  }, []);
+
+  function eliminarNota(id) {
+    fetch(endPoints.notas + "/" + id, {
+      method: "DELETE",
+    })
+      .then((reponse) => reponse.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+    getNotas();
+  }
+
   return (
     <div className="notas-container">
       <Header />
@@ -27,30 +50,38 @@ const Notas = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="id-cell">Nota Id</td>
-                <td className="profesor-id">Profesor Id</td>
-                <td className="estudiante-id">Estdudiante Id</td>
-                <td className="materia-name">Materia</td>
-                <td>
-                  <span className="tipo-evaluacion">Tipo evaluacion</span>
-                </td>
-                <td>
-                  <span className="valor-nota">Valor Nota</span>
-                </td>
-                <td className="fecha">Fecha nota</td>
-                <td className="observaciones">Observaciones</td>
-                <td>
-                  <div className="acciones">
-                    <button className="btn-editar" title="Editar">
-                      <span>✏️</span>
-                    </button>
-                    <button className="btn-eliminar" title="Eliminar">
-                      <span>🗑️</span>
-                    </button>
-                  </div>
-                </td>
-              </tr>
+              {notas.map((nota) => (
+                <tr>
+                  <td className="id-cell">{nota.id}</td>
+                  <td className="profesor-id">{nota.profesor_id}</td>
+                  <td className="estudiante-id">{nota.estudiante_id}</td>
+                  <td className="materia-name">{nota.materia}</td>
+                  <td>
+                    <span className="tipo-evaluacion">
+                      {nota.tipo_evaluacion}
+                    </span>
+                  </td>
+                  <td>
+                    <span className="valor-nota">{nota.valor}</span>
+                  </td>
+                  <td className="fecha">{nota.fecha}</td>
+                  <td className="observaciones">{nota.observaciones}</td>
+                  <td>
+                    <div className="acciones">
+                      <button className="btn-editar" title="Editar">
+                        <span>✏️</span>
+                      </button>
+                      <button
+                        onClick={() => eliminarNota(nota.id)}
+                        className="btn-eliminar"
+                        title="Eliminar"
+                      >
+                        <span>🗑️</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
