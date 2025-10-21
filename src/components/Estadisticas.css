@@ -1,0 +1,161 @@
+.stats-container {
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stats-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stats-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border-color: #d1d5db;
+}
+
+.stats-card__title {
+  color: #4b5563;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.stats-card__value {
+  color: #111827;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1;
+}
+
+.stats-card__icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  color: #6366f1;
+  opacity: 0.2;
+  transition: all 0.3s ease;
+}
+
+.stats-card:hover .stats-card__icon {
+  opacity: 0.5;
+  transform: scale(1.1);
+}
+
+
+.stats-card:nth-child(1) .stats-card__icon {
+  color: #4f46e5;
+}
+
+.stats-card:nth-child(2) .stats-card__icon {
+  color: #0ea5e9; 
+}
+
+.stats-card:nth-child(3) .stats-card__icon {
+  color: #10b981;
+}
+
+
+@media (max-width: 768px) {
+  .stats-container {
+    padding: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stats-card {
+    padding: 1.25rem;
+  }
+
+  .stats-card__value {
+    font-size: 1.75rem;
+  }
+
+  .stats-card__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stats-card {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.stats-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.stats-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.stats-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+
+.stats-card__value:empty::before {
+  content: '0';
+  color: #9ca3af;
+}
+
+
+.stats-card {
+  outline: none;
+}
+
+.stats-card:focus-within {
+  box-shadow: 0 0 0 2px #6366f1;
+}
+
+
+@media print {
+  .stats-container {
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .stats-card {
+    break-inside: avoid;
+    border: 1px solid #000;
+  }
+
+  .stats-card__icon {
+    display: none;
+  }
+}

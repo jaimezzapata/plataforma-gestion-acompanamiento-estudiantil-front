@@ -1,0 +1,332 @@
+.asistencia-container {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.asistencia-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.asistencia-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 1.5rem;
+}
+
+.asistencia-header h2 {
+  color: #343a40;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.asistencia-header p {
+  color: #6c757d;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.asistencia-main {
+  display: flex;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Sección de la tabla */
+.asistencia-table-section {
+  flex: 1;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+}
+
+.tabla-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.resumen {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.tabla-wrapper {
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.tabla-asistencia {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9rem;
+  border: 1px solid #dee2e6;
+}
+
+.tabla-asistencia thead {
+  background-color: #495057;
+  border-bottom: 2px solid #343a40;
+}
+
+.tabla-asistencia thead th {
+  color: white;
+  font-weight: 600;
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  border-right: 1px solid #6c757d;
+}
+
+.tabla-asistencia thead th:last-child {
+  border-right: none;
+}
+
+.tabla-asistencia tbody tr {
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.tabla-asistencia tbody tr:hover {
+  background-color: #f1f3f4;
+}
+
+.tabla-asistencia tbody tr:last-child {
+  border-bottom: none;
+}
+
+.tabla-asistencia tbody tr:nth-child(even) {
+  background-color: #fafbfc;
+}
+
+.tabla-asistencia tbody tr:nth-child(even):hover {
+  background-color: #f1f3f4;
+}
+
+.tabla-asistencia td {
+  padding: 0.75rem;
+  color: #495057;
+  vertical-align: middle;
+  border-right: 1px solid #e9ecef;
+}
+
+.tabla-asistencia td:last-child {
+  border-right: none;
+}
+
+.estado-presente {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.estado-ausente {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f1aeb5;
+}
+
+.estado-tardanza {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.acciones {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-editar,
+.btn-eliminar {
+  padding: 0.4rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+}
+
+.btn-editar {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.btn-editar:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-eliminar {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.btn-eliminar:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* Sección del formulario */
+.asistencia-form-section {
+  width: 350px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  align-self: flex-start;
+  position: sticky;
+  top: 1rem;
+}
+
+.asistencia-form-container {
+  padding: 1.5rem;
+}
+
+.asistencia-form-container h3 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.asistencia-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-select,
+.form-input,
+.form-textarea {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.form-select:focus,
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74,144,226,0.2);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-cancelar,
+.btn-guardar {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  flex: 1;
+  transition: all 0.2s ease;
+}
+
+.btn-cancelar {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 1px solid #ced4da;
+}
+
+.btn-guardar {
+  background-color: #28a745;
+  color: white;
+  border: 1px solid #28a745;
+}
+
+.btn-cancelar:hover {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+}
+
+.btn-guardar:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .asistencia-main {
+    flex-direction: column;
+  }
+
+  .asistencia-form-section {
+    width: 100%;
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .asistencia-content {
+    padding: 1rem;
+  }
+
+  .tabla-asistencia {
+    font-size: 0.8rem;
+  }
+
+  .tabla-asistencia th,
+  .tabla-asistencia td {
+    padding: 0.5rem;
+  }
+}

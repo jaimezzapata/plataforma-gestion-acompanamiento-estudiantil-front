@@ -1,35 +1,235 @@
 .perfil-container {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 80px);
+}
+
+.perfil-card {
+    max-width: 90%;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     overflow: hidden;
+    border: 1px solid #e9ecef;
+    height: 80vh;
+}
+
+.perfil-foto {
+    width: 300px;
+    background: linear-gradient(to bottom, #4a69bd, #3c5aa6);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.foto-wrapper {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.perfil-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.perfil-nombre {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.perfil-info {
+    flex: 1;
+    padding: 2rem;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.info-grupo {
+    border-bottom: 1px solid #e9ecef;
+    padding-bottom: 1.5rem;
+}
+
+.info-grupo:last-of-type {
+    border-bottom: none;
+}
+
+.info-titulo {
+    color: #4a69bd;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+}
+
+.info-campo {
+    display: flex;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.campo-label {
+    width: 180px;
+    color: #6c757d;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.campo-valor {
+    flex: 1;
+    color: #212529;
+    font-weight: 500;
+}
+
+.perfil-acciones {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+}
+
+.perfil-editar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #4a69bd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.perfil-editar:hover {
+    background-color: #3c5aa6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(74, 105, 189, 0.2);
+}
+
+.perfil-editar svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .perfil-card {
+        flex-direction: column;
+        margin: 1rem;
+    }
 
     .perfil-foto {
-        width: 50%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
+        width: 100%;
+        padding: 2rem 1rem;
+    }
 
-        img {
-            width: 70%;
-            height: 100%;
-        }
+    .foto-wrapper {
+        width: 150px;
+        height: 150px;
     }
 
     .perfil-info {
-        width: 50%;
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-        gap: 15px;
+        padding: 1.5rem;
+    }
 
-        .perfil-editar {
-            width: 200px;
-            height: 40px;
-            background: none;
-            border: solid 1px black;
-        }
+    .info-campo {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .campo-label {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .perfil-container {
+        padding: 1rem;
+    }
+
+    .perfil-card {
+        margin: 0;
+    }
+
+    .foto-wrapper {
+        width: 120px;
+        height: 120px;
+    }
+
+    .perfil-nombre {
+        font-size: 1.25rem;
+    }
+
+    .info-titulo {
+        font-size: 1rem;
+    }
+
+    .perfil-editar {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Animaciones */
+.perfil-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mejoras de accesibilidad */
+.perfil-editar:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 105, 189, 0.3);
+}
+
+/* Estilos de impresión */
+@media print {
+    .perfil-container {
+        padding: 0;
+        background: white;
+    }
+
+    .perfil-card {
+        box-shadow: none;
+        border: none;
+    }
+
+    .perfil-foto {
+        background: none;
+    }
+
+    .perfil-nombre {
+        color: #000;
+        text-shadow: none;
+    }
+
+    .perfil-editar {
+        display: none;
     }
 }
